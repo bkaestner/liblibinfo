@@ -1,0 +1,7 @@
+#include <stdio.h>
+
+int main(int argc, char *argv[]) {
+  puts("${TARGET}${INFO_VERSION}\n"
+       "Built ${INFO_AUTHOR} on ${TODAY} ${GIT_HASH}."
+       "${INFO_STRING}");
+}
