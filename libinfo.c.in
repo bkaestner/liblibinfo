@@ -1,7 +1,21 @@
-#include <stdio.h>
+#include <unistd.h>
 
-int main(int argc, char *argv[]) {
-  puts("${TARGET}${INFO_VERSION}\n"
-       "Built ${INFO_AUTHOR} on ${TODAY} ${GIT_HASH}."
-       "${INFO_STRING}");
+//! Use appropriate interpreter for this "binary"
+char const invoke_dynamic_linker[] __attribute__ ((section (".interp")))
+#ifdef __LP64__
+  = "/lib64/ld-linux-x86-64.so.2";
+#else
+= "/lib/ld-linux.so.2";
+#endif
+
+//! liblibinfo banner
+const static char libinfo_banner[] =
+  "${TARGET}${INFO_VERSION}\n"
+  "Built ${INFO_AUTHOR} on ${TODAY} ${GIT_HASH}."
+  "${INFO_STRING}";
+
+//! liblibinfo entry point
+void liblibinfo_print() {
+  write(STDOUT_FILENO, libinfo_banner, sizeof(libinfo_banner) - 1);
+  _exit(0);
 }

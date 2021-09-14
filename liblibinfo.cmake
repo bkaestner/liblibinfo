@@ -38,7 +38,5 @@ function(add_libinfo TARGET)
 
   configure_file("${LIBLIBINFO_LOC}/libinfo.c.in" "${LIBINFO_ADDITIONAL_SOURCE}")
   set_property(TARGET ${TARGET} APPEND PROPERTY SOURCES "${LIBINFO_ADDITIONAL_SOURCE}")
-  set_property(TARGET ${TARGET} PROPERTY POSITION_INDEPENDENT_CODE ON)
-  target_compile_options(${TARGET} PRIVATE "-pie")
-  target_link_libraries(${TARGET} PRIVATE "-pie -Wl,-E")
+  target_link_libraries(${TARGET} PRIVATE "-e liblibinfo_print")
 endfunction()
