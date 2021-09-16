@@ -10,7 +10,7 @@ char const invoke_dynamic_linker[] __attribute__ ((section (".interp")))
 #endif
 
 //! liblibinfo banner
-const static char libinfo_banner[] =
+static const char libinfo_banner[] =
   "${TARGET}${INFO_VERSION}\n"
   "Built ${INFO_AUTHOR} on ${TODAY} ${GIT_HASH}."
   "${INFO_STRING}";
