@@ -1,3 +1,6 @@
+# Lib²Info ; https://github.com/bkaestner/liblibinfo
+# SPDX-License-Identifier: MIT
+
 find_package(Git)
 set(LIBLIBINFO_LOC "${CMAKE_CURRENT_LIST_DIR}")
 

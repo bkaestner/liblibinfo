@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 #include <unistd.h>
 
 //! Use appropriate interpreter for this "binary"
