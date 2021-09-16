@@ -17,6 +17,7 @@ const static char libinfo_banner[] =
 
 //! liblibinfo entry point
 void liblibinfo_print() {
-  write(STDOUT_FILENO, libinfo_banner, sizeof(libinfo_banner) - 1);
+  ssize_t bytes_written = write(STDOUT_FILENO, libinfo_banner, sizeof(libinfo_banner) - 1);
+  (void)bytes_written;
   _exit(0);
 }
