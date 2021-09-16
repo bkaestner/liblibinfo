@@ -4,6 +4,8 @@ project(liblibinfo-example
   VERSION 1.0.0
   LANGUAGES C)
 
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -Werror")
+
 enable_testing()
 
 # Include the liblibinfo file
